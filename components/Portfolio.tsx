@@ -46,6 +46,16 @@ const portfolioData: Project[] = [
   { id: 5, type: 'standard', title: 'Character Animation Short', description: 'A short story brought to life with expressive 2D character animation.', thumbnailUrl: 'https://drive.google.com/uc?id=1-eD_c_B_a-Z_y_X-w_V_u-T_s_R_q-PoN', tools: ['After Effects', 'AI Tools'], videoUrl: 'https://www.youtube.com/embed/6_p_wQu0Nts', category: '2D Animation' },
   { id: 6, type: 'standard', title: 'Social Media Ad Campaign', description: 'A series of short, punchy video ads for a new product launch.', thumbnailUrl: 'https://drive.google.com/uc?id=1-m_L-k_J-i_H_g_F-e_D_c-B_a_Z_y-Xw', tools: ['Premiere Pro', 'After Effects'], videoUrl: 'https://www.youtube.com/embed/6_p_wQu0Nts', category: 'Short Form Videos' },
   { id: 7, type: 'standard', title: 'Documentary Style YouTube Video', description: 'Editing and color grading for a mini-documentary about travel.', thumbnailUrl: 'https://drive.google.com/uc?id=1-m_L-k_J-i_H_g_F-e_D_c-B_a_Z_y-Xw', tools: ['Premiere Pro', 'DaVinci Resolve'], videoUrl: 'https://www.youtube.com/embed/6_p_wQu0Nts', category: 'YouTube Videos' },
+  { 
+    id: 8, 
+    type: 'standard', 
+    title: 'Photo Book Promo', 
+    description: 'Animated promotional video designed to drive pre-sales for a photo book launch.', 
+    thumbnailUrl: 'https://img.youtube.com/vi/t6cAV1_ipF8/maxresdefault.jpg', 
+    tools: ['After Effects', 'Motion Graphics'], 
+    videoUrl: 'https://www.youtube.com/embed/t6cAV1_ipF8', 
+    category: 'Motion Graphics' 
+  },
 ];
 
 const containerVariants = {
