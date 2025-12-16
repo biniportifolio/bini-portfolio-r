@@ -18,7 +18,6 @@ import GearAndSetup from './components/GearAndSetup';
 import FAQ from './components/FAQ';
 import ReferralBanner from './components/ReferralBanner';
 import UpworkProfile from './components/UpworkProfile';
-import ClientLogos from './components/ClientLogos';
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -79,7 +78,6 @@ const App: React.FC = () => {
       <main>
         <Hero />
         <About />
-        <ClientLogos />
         <Skills />
         <Portfolio />
         <BehindTheScenes />
