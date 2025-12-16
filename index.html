@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-g" />
+    <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Binyam G. | Animator & Video Editor</title>
+    
+    <!-- SEO & Meta Tags -->
+    <title>Binyam G. | Professional Animator & Video Editor Portfolio</title>
+    <meta name="description" content="Expert 2D/3D Animator and Video Editor specializing in motion graphics, VFX, and high-retention short-form content. Hire me on Upwork." />
+    <meta name="keywords" content="Video Editor, Motion Graphics, 3D Animation, VFX, Upwork Freelancer, Explainer Videos, Social Media Content" />
+    <meta name="author" content="Binyam G." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://binyamgobeze.netlify.app/" />
+    <meta property="og:title" content="Binyam G. | Professional Animator & Video Editor" />
+    <meta property="og:description" content="Expert 2D/3D Animator and Video Editor. View my showreel and portfolio." />
+    <meta property="og:image" content="https://i.imgur.com/B7qAtkF.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://binyamgobeze.netlify.app/" />
+    <meta property="twitter:title" content="Binyam G. | Animator & Video Editor" />
+    <meta property="twitter:description" content="Expert 2D/3D Animator and Video Editor. View my showreel and portfolio." />
+    <meta property="twitter:image" content="https://i.imgur.com/B7qAtkF.jpeg" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <script>
       // Set theme on page load to prevent FOUC (Flash of Unstyled Content)
       if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -34,11 +55,28 @@
               'text-secondary': '#64748B',
               'border-default': '#E2E8F0',
             },
+            backgroundImage: {
+               'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.4%22/%3E%3C/svg%3E')",
+            },
             boxShadow: {
               'glow-md': '0 0 15px rgba(124, 58, 237, 0.4)',
               'glow-lg': '0 0 25px rgba(124, 58, 237, 0.5)',
+              'upwork-glow': '0 0 20px rgba(20, 168, 0, 0.4)',
             },
             keyframes: {
+              noise: {
+                '0%': { transform: 'translate(0, 0)' },
+                '10%': { transform: 'translate(-5%, -5%)' },
+                '20%': { transform: 'translate(-10%, 5%)' },
+                '30%': { transform: 'translate(5%, -10%)' },
+                '40%': { transform: 'translate(-5%, 15%)' },
+                '50%': { transform: 'translate(-10%, 5%)' },
+                '60%': { transform: 'translate(15%, 0)' },
+                '70%': { transform: 'translate(0, 10%)' },
+                '80%': { transform: 'translate(-15%, 0)' },
+                '90%': { transform: 'translate(10%, 5%)' },
+                '100%': { transform: 'translate(5%, 0)' },
+              },
               aurora: {
                 from: { backgroundPosition: '0% 50%' },
                 to: { backgroundPosition: '100% 50%' },
@@ -65,14 +103,20 @@
                 '0%': { left: '-60%' },
                 '100%': { left: '100%' },
               },
+              pulseGlow: {
+                '0%, 100%': { boxShadow: '0 0 15px rgba(20, 168, 0, 0.4)' },
+                '50%': { boxShadow: '0 0 25px rgba(20, 168, 0, 0.7)' },
+              }
             },
             animation: {
+              noise: 'noise 8s steps(10) infinite',
               aurora: 'aurora 15s ease infinite alternate',
               'fade-in': 'fade-in 0.5s ease-out forwards',
               'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
               float: 'float 6s ease-in-out infinite',
               'particle-move': 'particle-move linear infinite',
               'pan-right': 'pan-right linear infinite',
+              'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             }
           }
         }
@@ -89,8 +133,24 @@
   }
 }
 </script>
+<style>
+  /* Custom Scrollbar for a premium feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A14; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #334155; 
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569; 
+  }
+</style>
 </head>
-  <body class="bg-primary text-text-primary dark:bg-[#0A0A14] dark:text-[#F1F5F9] antialiased cursor-none">
+  <body class="bg-primary text-text-primary dark:bg-[#0A0A14] dark:text-[#F1F5F9] antialiased cursor-none overflow-x-hidden">
     <div class="fixed top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] -z-10"></div>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>

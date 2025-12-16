@@ -10,8 +10,11 @@ interface PortfolioModalProps {
 }
 
 const PreviewContent: React.FC<{ project: Project }> = ({ project }) => {
-    const videoUrlWithAutoplay = project.videoUrl
-        ? `${project.videoUrl}${project.videoUrl.includes('?') ? '&' : '?'}autoplay=1&rel=0&modestbranding=1`
+    // Construct video URL from videoUrl OR videoId
+    const videoUrl = project.videoUrl || (project.videoId ? `https://www.youtube.com/embed/${project.videoId}` : '');
+    
+    const videoUrlWithAutoplay = videoUrl
+        ? `${videoUrl}${videoUrl.includes('?') ? '&' : '?'}autoplay=1&rel=0&modestbranding=1`
         : '';
     
     // Social Sharing URLs
@@ -26,7 +29,7 @@ const PreviewContent: React.FC<{ project: Project }> = ({ project }) => {
             <div className="mb-6 bg-primary dark:bg-[#0A0A14] rounded-md">
                 {project.type === 'before-after' && project.beforeImageUrl && project.afterImageUrl ? (
                     <BeforeAfterSlider before={project.beforeImageUrl} after={project.afterImageUrl} />
-                ) : project.videoUrl ? (
+                ) : videoUrl ? (
                 <div className="aspect-video">
                     <iframe
                     src={videoUrlWithAutoplay}

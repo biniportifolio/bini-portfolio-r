@@ -40,7 +40,7 @@ const AIQuoteEstimator: React.FC = () => {
         setError(null);
 
         try {
-            const ai = new GoogleGenAI({ apiKey: "AIzaSyCV6BCT45tOY6iQqWwXkvIvnRD3YzHDMJI" });
+            const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
             const responseSchema = {
                 type: Type.OBJECT,
@@ -185,7 +185,7 @@ const AIQuoteEstimator: React.FC = () => {
                         </div>
 
                          <p className="mt-8 text-xs text-text-secondary dark:text-[#94A3B8] text-center">
-                            *This is an AI-generated estimate and is not a final quote. Prices may vary based on project details. For a precise quote, please use the contact form below.
+                            *This is an AI-generated estimate and is not a final quote. Prices may vary based on project details. For a precise quote, please contact me on Upwork.
                         </p>
                     </motion.div>
                 )}

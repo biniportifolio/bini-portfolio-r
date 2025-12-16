@@ -5,29 +5,37 @@ export interface Skill {
   icon: React.ReactNode;
 }
 
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tools: string[];
-  category: string;
-  type: 'standard' | 'before-after';
-  // For 'standard' projects
-  thumbnailUrl?: string;
-  videoUrl?: string;
-  // For 'before-after' projects
-  beforeImageUrl?: string;
-  afterImageUrl?: string;
-  // For Case Studies
-  caseStudy?: {
-    problem: string;
-    solution: string;
-    result: string;
-    keyMetrics?: { label: string; value: string; }[];
-  }
+export interface KeyMetric {
+  label: string;
+  value: string;
 }
 
-// FIX: Add and export the InProgressProject interface.
+export interface CaseStudy {
+  problem: string;
+  solution: string;
+  result: string;
+  keyMetrics?: KeyMetric[];
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  description: string; // The "Brief"
+  videoId: string; // YouTube ID
+  videoUrl?: string; // Optional full URL
+  tools: string[];
+  role: string; // Editor, Animator, etc.
+  result: string; // "Increased retention by 20%"
+  category: 'animation' | 'motion-graphics' | 'faceless' | 'reels' | 'all';
+  thumbnailUrl: string;
+  
+  // Extended properties for modal details
+  type?: 'video' | 'before-after';
+  beforeImageUrl?: string;
+  afterImageUrl?: string;
+  caseStudy?: CaseStudy;
+}
+
 export interface InProgressProject {
   id: number;
   title: string;

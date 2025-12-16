@@ -67,7 +67,12 @@ const App: React.FC = () => {
 
 
   return (
-    <div className="bg-primary dark:bg-[#0A0A14] min-h-screen relative isolate pb-24 md:pb-0">
+    <div className="bg-primary dark:bg-[#0A0A14] min-h-screen relative isolate pb-24 md:pb-0 font-sans selection:bg-accent-start/30 selection:text-white">
+      {/* Film Grain Overlay */}
+      <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03] dark:opacity-[0.05] mix-blend-overlay">
+        <div className="absolute inset-0 bg-noise animate-noise"></div>
+      </div>
+
       <AnimatePresence>
         {isLoading && <SplashScreen />}
       </AnimatePresence>
