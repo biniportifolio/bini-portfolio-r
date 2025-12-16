@@ -116,20 +116,25 @@ const VideoSlide: React.FC<{
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-        style={{ pointerEvents: 'all' }} // Ensure controls work if user wants to unmute
+        style={{ pointerEvents: 'all' }}
       ></iframe>
       
       {/* Overlay Info */}
-      <div className="absolute bottom-8 left-0 right-0 p-6 pointer-events-none bg-gradient-to-t from-black/80 to-transparent">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+        className="absolute bottom-8 left-0 right-0 p-6 pointer-events-none bg-gradient-to-t from-black/80 to-transparent"
+      >
         <div className="max-w-7xl mx-auto">
-           <span className="inline-block px-3 py-1 mb-2 text-xs font-bold uppercase tracking-wider text-white bg-accent-start rounded-full">
+           <span className="inline-block px-3 py-1 mb-2 text-xs font-bold uppercase tracking-wider text-white bg-accent-start rounded-full shadow-lg">
               {categoryTitle}
            </span>
-           <p className="text-white/80 text-sm font-medium">
+           <p className="text-white/80 text-sm font-medium drop-shadow-md">
              Video {index + 1} of {total}
            </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -167,7 +172,18 @@ const Portfolio: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-text-primary dark:text-white mb-4">Selected Works</h2>
+          {/* Animated Title */}
+          <div className="overflow-hidden mb-4">
+            <motion.h2 
+              className="text-4xl font-bold text-text-primary dark:text-white inline-block"
+              initial={{ y: "100%" }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Selected Works
+            </motion.h2>
+          </div>
           <p className="text-text-secondary dark:text-[#94A3B8] max-w-2xl mx-auto">
             Explore my portfolio by category. Click a section below to enter the viewing experience.
           </p>
@@ -181,8 +197,9 @@ const Portfolio: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
+              whileHover={{ scale: 1.03, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
               onClick={() => handleCategoryClick(category)}
-              className="group relative aspect-video md:aspect-[16/9] lg:aspect-[2/1] overflow-hidden rounded-2xl cursor-pointer shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+              className="group relative aspect-video md:aspect-[16/9] lg:aspect-[2/1] overflow-hidden rounded-2xl cursor-pointer shadow-lg hover:shadow-glow-md transition-all duration-300"
               data-cursor-variant="project"
             >
               {/* Background Image */}
@@ -197,16 +214,30 @@ const Portfolio: React.FC = () => {
               
               {/* Content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                <h3 className="text-3xl font-bold text-white mb-2 transform group-hover:scale-105 transition-transform duration-300">
+                <motion.h3 
+                  className="text-3xl font-bold text-white mb-2"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
                   {category.title}
-                </h3>
-                <p className="text-white/80 text-sm max-w-sm opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-100">
+                </motion.h3>
+                <motion.p 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="text-white/80 text-sm max-w-sm opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-100"
+                >
                   {category.description}
-                </p>
+                </motion.p>
                 
-                <div className="mt-6 px-6 py-2 border border-white/30 rounded-full text-white text-sm font-semibold backdrop-blur-sm group-hover:bg-white group-hover:text-black transition-all duration-300">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 }}
+                  className="mt-6 px-6 py-2 border border-white/30 rounded-full text-white text-sm font-semibold backdrop-blur-sm group-hover:bg-white group-hover:text-black transition-all duration-300"
+                >
                   View {category.videos.length} Videos
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
@@ -230,9 +261,12 @@ const Portfolio: React.FC = () => {
                   className="pointer-events-auto flex items-center gap-2 text-white hover:text-accent-start transition-colors px-4 py-2 rounded-full bg-black/20 backdrop-blur-md border border-white/10 hover:border-accent-start/50 group"
                   data-cursor-variant="link"
                 >
-                  <div className="group-hover:-translate-x-1 transition-transform duration-300">
+                  <motion.div 
+                    className="group-hover:-translate-x-1 transition-transform duration-300"
+                    whileHover={{ x: -3 }}
+                  >
                     <BackArrowIcon />
-                  </div>
+                  </motion.div>
                   <span className="font-semibold tracking-wide">Back to Categories</span>
                 </button>
             </div>
@@ -252,7 +286,7 @@ const Portfolio: React.FC = () => {
 
             {/* Scroll Indicator (if more than 1 video) */}
             {activeCategory.videos.length > 1 && (
-                <div className="absolute bottom-6 right-6 z-10 hidden md:flex flex-col gap-2">
+                <div className="absolute bottom-6 right-6 z-10 hidden md:flex flex-col gap-2 pointer-events-none">
                      <div className="w-1 h-12 rounded-full bg-white/20 overflow-hidden relative">
                          <motion.div 
                             className="absolute top-0 left-0 w-full bg-accent-start rounded-full"

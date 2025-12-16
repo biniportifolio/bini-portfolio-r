@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { MegaphoneIcon } from './icons/IconComponents';
+import { MegaphoneIcon, UpworkIcon } from './icons/IconComponents';
 
 const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -45,11 +45,16 @@ const ReferralBanner: React.FC = () => {
             </p>
             <div className="mt-8">
               <a
-                href="#contact"
-                className="inline-block bg-white text-accent-end font-bold py-3 px-8 rounded-full transition-transform duration-300 transform hover:scale-105 shadow-lg"
+                href="https://www.upwork.com/freelancers/binyamgobezie" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-accent-end font-bold py-3 px-8 rounded-full transition-transform duration-300 transform hover:scale-105 shadow-lg"
                 data-cursor-variant="link"
               >
-                Get in Touch
+                <div className="w-5 h-5 bg-accent-end rounded-full flex items-center justify-center">
+                    <UpworkIcon className="w-3.5 h-3.5 filter brightness-0 invert" />
+                </div>
+                Contact Me on Upwork
               </a>
             </div>
           </div>

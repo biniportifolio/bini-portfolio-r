@@ -76,7 +76,19 @@ const About: React.FC = () => {
         variants={sectionVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2 variants={itemVariants} className="text-4xl font-bold text-center text-text-primary dark:text-white mb-16">About Me</motion.h2>
+        {/* Animated Section Title */}
+        <div className="mb-16 overflow-hidden">
+            <motion.h2 
+                className="text-4xl font-bold text-center text-text-primary dark:text-white"
+                initial={{ y: "100%" }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+                About Me
+            </motion.h2>
+        </div>
+
         <div className="grid lg:grid-cols-5 gap-16 items-center">
           <motion.div variants={itemVariants} className="lg:col-span-2">
             <div className="relative w-full max-w-xs mx-auto">

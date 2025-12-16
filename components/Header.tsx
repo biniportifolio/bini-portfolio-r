@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SunIcon, MoonIcon } from './icons/IconComponents';
+import { SunIcon, MoonIcon, UpworkIcon } from './icons/IconComponents';
 
 const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick?: () => void }> = ({ href, children, onClick }) => (
   <a 
@@ -43,9 +43,6 @@ const Header: React.FC = () => {
     { href: '#skills', label: 'Skills' },
     { href: '#portfolio', label: 'Portfolio' },
     { href: '#testimonials', label: 'Testimonials' },
-    { href: '#upwork', label: 'Upwork' },
-    { href: '#quote', label: 'AI Quote' },
-    { href: '#contact', label: 'Contact' },
   ];
   
   const closeMenu = () => setIsOpen(false);
@@ -62,6 +59,18 @@ const Header: React.FC = () => {
               {navLinks.map(link => (
                 <NavLink key={link.href} href={link.href}>{link.label}</NavLink>
               ))}
+              <a 
+                href="https://www.upwork.com/freelancers/binyamgobezie"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-4 bg-[#14a800] hover:bg-[#14a800]/90 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2 text-sm"
+                data-cursor-variant="link"
+              >
+                  <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <UpworkIcon className="w-3 h-3" />
+                  </div>
+                  Hire Me
+              </a>
               <button
                 onClick={handleThemeSwitch}
                 className="ml-4 p-2 rounded-full text-text-secondary dark:text-[#94A3B8] hover:bg-secondary dark:hover:bg-[#11111F] focus:outline-none focus:ring-2 focus:ring-accent-start transition-colors"
@@ -102,6 +111,18 @@ const Header: React.FC = () => {
             {navLinks.map(link => (
                 <NavLink key={link.href} href={link.href} onClick={closeMenu}>{link.label}</NavLink>
             ))}
+             <a 
+                href="https://www.upwork.com/freelancers/binyamgobezie"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="w-full text-left block text-white bg-[#14a800] px-3 py-2 rounded-md text-base font-medium flex items-center gap-2"
+            >
+                <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                    <UpworkIcon className="w-3.5 h-3.5" />
+                </div>
+                Hire Me on Upwork
+            </a>
              <div className="pt-2 pl-3">
               <button
                 onClick={handleThemeSwitch}

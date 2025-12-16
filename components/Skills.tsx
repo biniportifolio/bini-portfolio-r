@@ -54,7 +54,17 @@ const Skills: React.FC = () => {
         variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2 variants={itemVariants} className="text-4xl font-bold text-center text-text-primary dark:text-white mb-4">My Skills</motion.h2>
+        <div className="mb-4 overflow-hidden text-center">
+            <motion.h2 
+                className="text-4xl font-bold text-text-primary dark:text-white inline-block"
+                initial={{ y: "100%" }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+                My Skills
+            </motion.h2>
+        </div>
         <motion.p variants={itemVariants} className="text-center text-text-secondary dark:text-[#94A3B8] mb-12 max-w-2xl mx-auto">A versatile skill set to bring any creative vision to life.</motion.p>
         <motion.div 
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8"
